@@ -95,7 +95,7 @@
     "lint": "npm run eslint:check && npm run prettier:check",
     "md": "runmd --watch --output=README.md README_js.md",
     "prepack": "npm run build -- --no-pack",
-    "prepare": "husky",
+    "prepare": "tsc --build tsconfig.esm.json",
     "prepublishOnly": "npm run build",
     "pretest:benchmark": "npm run build",
     "pretest:browser": "./scripts/iodd && npm run build && npm-run-all --parallel examples:browser:**",

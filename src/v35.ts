@@ -35,14 +35,14 @@ export default function v35<TBuf extends Uint8Array = Uint8Array>(
     namespace = parse(namespace);
   }
 
-  if (namespace?.length !== 16) {
-    throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
-  }
+  // if (namespace?.length !== 16) {
+  //   throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
+  // }
 
   // Compute hash of namespace and value, Per 4.3
   // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
   // hashfunc([...namespace, ... value])`
-  let bytes = new Uint8Array(16 + valueBytes.length);
+  let bytes = new Uint8Array(namespaceBytes.length + valueBytes.length);
   bytes.set(namespaceBytes);
   bytes.set(valueBytes, namespaceBytes.length);
   bytes = hash(bytes);
